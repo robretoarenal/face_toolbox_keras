@@ -110,7 +110,7 @@ class KerasELG():
             
         # Upsample
         up2 = Lambda(
-            lambda x: tf.image.resize_bilinear(
+            lambda x: tf.compat.v1.image.resize_bilinear(
                 x[0],
                 x[1].shape.as_list()[1:3], 
                 align_corners=True))([low3, up1]) # default resize_bilinear
